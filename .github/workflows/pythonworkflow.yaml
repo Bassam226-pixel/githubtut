@@ -25,5 +25,8 @@ jobs:
       - name: Run ETL script
         run: python etl.py
 
-
+      - name: upload file - uses: actions/upload-artifact@v4
+        with:
+         name: sales.csv
+         path: financial_summary_2024.csv
       
