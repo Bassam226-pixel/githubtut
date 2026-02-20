@@ -55,6 +55,6 @@ print(expenses[["variable_name", "value"]].head())
 
 
 
-df.to_csv("my_project/financial_summary_2024.csv", index=False)
+df.to_csv("financial_summary_2024.csv", index=False)
 
 print("\n✅ Analysis Complete")
