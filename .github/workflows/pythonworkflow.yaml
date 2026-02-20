@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -25,9 +25,14 @@ jobs:
       - name: Run ETL script
         run: python etl.py
 
-      - name: Upload file
+      - name: Run dbt
+        run: |
+          cd my_project
+          dbt debug --profiles-dir .
+          dbt run --profiles-dir .
+
+      - name: Upload DuckDB database
         uses: actions/upload-artifact@v4
         with:
-          name: sales
-          path: financial_summary_2024.csv
-      
+          name: duckdb-database
+          path: my_project/my_database.duckdb
