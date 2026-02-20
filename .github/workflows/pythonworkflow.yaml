@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -25,8 +25,9 @@ jobs:
       - name: Run ETL script
         run: python etl.py
 
-      - name: upload file - uses: actions/upload-artifact@v4
+      - name: Upload file
+        uses: actions/upload-artifact@v4
         with:
-         name: sales.csv
-         path: financial_summary_2024.csv
+          name: sales
+          path: financial_summary_2024.csv
       
